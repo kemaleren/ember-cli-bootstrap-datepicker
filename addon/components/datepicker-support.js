@@ -9,6 +9,11 @@ export default Ember.Mixin.create({
   language: undefined,
   startDate: undefined,
   endDate: undefined,
+  beforeShowDay: Ember.$.noop,
+  beforeShowMonth: Ember.$.noop,
+  beforeShowYear: Ember.$.noop,
+  beforeShowDecade: Ember.$.noop,
+  beforeShowCentury: Ember.$.noop,
   customParser: function(value) {
     return value;
   },
@@ -43,7 +48,12 @@ export default Ember.Mixin.create({
         todayHighlight: this.get('todayHighlight'),
         toggleActive: this.get('toggleActive'),
         weekStart: this.get('weekStart'),
-        datesDisabled: this.get('datesDisabled')
+        datesDisabled: this.get('datesDisabled'),
+        beforeShowDay: this.get('beforeShowDay'),
+        beforeShowMonth: this.get('beforeShowMonth'),
+        beforeShowYear: this.get('beforeShowYear'),
+        beforeShowDecade: this.get('beforeShowDecade'),
+        beforeShowCentury: this.get('beforeShowCentury'),
       }).
       on('changeDate', event => {
         Ember.run(() => {
@@ -130,6 +140,36 @@ export default Ember.Mixin.create({
       let format = this._toString(this.get('format'));
       this.$().datepicker('format', format);
       this.$().data('datepicker')._process_options({format: format});
+      this._updateDatepicker();
+    });
+
+    this.addObserver('beforeShowDay', function() {
+      this.$().datepicker('beforeShowDay', this.get('beforeShowDay'));
+      this.$().data('datepicker')._process_options({beforeShowDay: this.get('beforeShowDay')});
+      this._updateDatepicker();
+    });
+
+    this.addObserver('beforeShowMonth', function() {
+      this.$().datepicker('beforeShowMonth', this.get('beforeShowMonth'));
+      this.$().data('datepicker')._process_options({beforeShowMonth: this.get('beforeShowMonth')});
+      this._updateDatepicker();
+    });
+
+    this.addObserver('beforeShowYear', function() {
+      this.$().datepicker('beforeShowYear', this.get('beforeShowYear'));
+      this.$().data('datepicker')._process_options({beforeShowYear: this.get('beforeShowYear')});
+      this._updateDatepicker();
+    });
+
+    this.addObserver('beforeShowDecade', function() {
+      this.$().datepicker('beforeShowDecade', this.get('beforeShowDecade'));
+      this.$().data('datepicker')._process_options({beforeShowDecade: this.get('beforeShowDecade')});
+      this._updateDatepicker();
+    });
+
+    this.addObserver('beforeShowCentury', function() {
+      this.$().datepicker('beforeShowCentury', this.get('beforeShowCentury'));
+      this.$().data('datepicker')._process_options({beforeShowCentury: this.get('beforeShowCentury')});
       this._updateDatepicker();
     });
   }),
