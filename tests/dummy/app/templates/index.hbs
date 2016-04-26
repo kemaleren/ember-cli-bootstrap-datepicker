@@ -83,6 +83,26 @@ ember generate bootstrap-datepicker</pre>
     </div>
   </div>
 
+  <h3>beforeShowDay</h3>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <pre><code>&#123;&#123;bootstrap-datepicker beforeShowDay=myBeforeShowDay placeholder="Click to play" class="form-control"&#125;&#125;</code></pre>
+    </div>
+    <div class="panel-body">
+      <p>
+        Type: <code>Function</code><br>
+        Default: <code>Ember.$.noop</code>
+      </p>
+      <p>The options for <code>beforeShowMonth</code>, <code>beforeShowYear</code>, <code>beforeShowDecade</code>, and <code>beforeShowCentury</code> are used similarly.</p>
+      <p>You could read more about beforeShowDay and related functions <a href="https://bootstrap-datepicker.readthedocs.org/en/latest/options.html#beforeshowday">here</a>.</p>
+    </div>
+    <div class="panel-footer">
+      {{bootstrap-datepicker beforeShowDay=Ember.$.noop
+                             placeholder="Click to play"
+                             class="form-control"}}
+    </div>
+  </div>
+
   <h3>calendarWeeks</h3>
   <div class="panel panel-default">
     <div class="panel-heading">
