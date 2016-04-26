@@ -137,3 +137,83 @@ test('updates minViewMode', function(assert) {
 
   assert.equal(this.$().data('datepicker').o.minViewMode, monthsViewModeNumber, 'updates minViewMode');
 });
+
+test('updates beforeShowDay', function(assert) {
+  var initialFunction = function() {
+    return false;
+  };
+  var newFunction = function() {
+    return true;
+  };
+  var component = this.subject({
+    value: new Date(2015, 4),
+    beforeShowDay: initialFunction
+  });
+  assert.equal(this.$().data('datepicker').o.beforeShowDay, initialFunction, 'sets initial beforeShowDay');
+  component.set('beforeShowDay', newFunction);
+  assert.equal(this.$().data('datepicker').o.beforeShowDay, newFunction, 'updates beforeShowDay');
+});
+
+test('updates beforeShowMonth', function(assert) {
+  var initialFunction = function() {
+    return false;
+  };
+  var newFunction = function() {
+    return true;
+  };
+  var component = this.subject({
+    value: new Date(2015, 4),
+    beforeShowMonth: initialFunction
+  });
+  assert.equal(this.$().data('datepicker').o.beforeShowMonth, initialFunction, 'sets initial beforeShowMonth');
+  component.set('beforeShowMonth', newFunction);
+  assert.equal(this.$().data('datepicker').o.beforeShowMonth, newFunction, 'updates beforeShowMonth');
+});
+
+test('updates beforeShowYear', function(assert) {
+  var initialFunction = function() {
+    return false;
+  };
+  var newFunction = function() {
+    return true;
+  };
+  var component = this.subject({
+    value: new Date(2015, 4),
+    beforeShowYear: initialFunction
+  });
+  assert.equal(this.$().data('datepicker').o.beforeShowYear, initialFunction, 'sets initial beforeShowYear');
+  component.set('beforeShowYear', newFunction);
+  assert.equal(this.$().data('datepicker').o.beforeShowYear, newFunction, 'updates beforeShowYear');
+});
+
+test('updates beforeShowDecade', function(assert) {
+  var initialFunction = function() {
+    return false;
+  };
+  var newFunction = function() {
+    return true;
+  };
+  var component = this.subject({
+    value: new Date(2015, 4),
+    beforeShowDecade: initialFunction
+  });
+  assert.equal(this.$().data('datepicker').o.beforeShowDecade, initialFunction, 'sets initial beforeShowDecade');
+  component.set('beforeShowDecade', newFunction);
+  assert.equal(this.$().data('datepicker').o.beforeShowDecade, newFunction, 'updates beforeShowDecade');
+});
+
+test('updates beforeShowCentury', function(assert) {
+  var initialFunction = function() {
+    return false;
+  };
+  var newFunction = function() {
+    return true;
+  };
+  var component = this.subject({
+    value: new Date(2015, 4),
+    beforeShowCentury: initialFunction
+  });
+  assert.equal(this.$().data('datepicker').o.beforeShowCentury, initialFunction, 'sets initial beforeShowCentury');
+  component.set('beforeShowCentury', newFunction);
+  assert.equal(this.$().data('datepicker').o.beforeShowCentury, newFunction, 'updates beforeShowCentury');
+});
