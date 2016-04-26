@@ -58,6 +58,17 @@ Default: `false`
 {{bootstrap-datepicker value=expiresAt autoclose=true}}
 ```
 
+#### beforeShowDay
+
+Type: `Function`
+Default: `Ember.$.noop`
+
+The options for `beforeShowMonth`, `beforeShowYear`, `beforeShowDecade`, and `beforeShowCentury` are used similarly.
+
+```handlebars
+{{bootstrap-datepicker value=expiresAt beforeShowDay=myBeforeShowDay}}
+```
+
 #### calendarWeeks
 
 Type: `Boolean`
